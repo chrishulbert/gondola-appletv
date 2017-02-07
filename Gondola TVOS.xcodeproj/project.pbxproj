@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		83D932721E48837400C228F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D932711E48837400C228F3 /* AppDelegate.swift */; };
 		83D932741E48837400C228F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D932731E48837400C228F3 /* ViewController.swift */; };
-		83D932771E48837400C228F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D932751E48837400C228F3 /* Main.storyboard */; };
 		83D932791E48837400C228F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D932781E48837400C228F3 /* Assets.xcassets */; };
 		83D932841E48837400C228F3 /* Gondola_TVOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D932831E48837400C228F3 /* Gondola_TVOSTests.swift */; };
 /* End PBXBuildFile section */
@@ -28,7 +27,6 @@
 		83D9326E1E48837400C228F3 /* Gondola TVOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gondola TVOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D932711E48837400C228F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83D932731E48837400C228F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		83D932761E48837400C228F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83D932781E48837400C228F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83D9327A1E48837400C228F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83D9327F1E48837400C228F3 /* Gondola TVOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gondola TVOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,7 +75,6 @@
 			children = (
 				83D932711E48837400C228F3 /* AppDelegate.swift */,
 				83D932731E48837400C228F3 /* ViewController.swift */,
-				83D932751E48837400C228F3 /* Main.storyboard */,
 				83D932781E48837400C228F3 /* Assets.xcassets */,
 				83D9327A1E48837400C228F3 /* Info.plist */,
 			);
@@ -179,7 +176,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D932791E48837400C228F3 /* Assets.xcassets in Resources */,
-				83D932771E48837400C228F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,17 +215,6 @@
 			targetProxy = 83D932801E48837400C228F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		83D932751E48837400C228F3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83D932761E48837400C228F3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		83D932861E48837400C228F3 /* Debug */ = {
