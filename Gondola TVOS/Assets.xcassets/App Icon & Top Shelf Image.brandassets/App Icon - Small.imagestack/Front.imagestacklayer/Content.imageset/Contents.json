@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "tv",
+      "filename" : "SmlFront.png",
       "scale" : "1x"
     }
   ],
