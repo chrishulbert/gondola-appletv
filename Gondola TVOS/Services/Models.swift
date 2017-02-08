@@ -24,7 +24,7 @@ struct TVShowMetadata {
     let overview:     String
     let image:        String
     let backdrop:     String
-    let firstAirDate: String
+    let firstAirDate: String // eg "1989-07-05"
     let lastAirDate:  String
     let seasons:      [TVSeasonMetadata]
 }
@@ -53,13 +53,27 @@ struct TVEpisodeMetadata {
 
 extension GondolaMetadata {
     static func parse(from: [AnyHashable: Any]) -> GondolaMetadata {
-        let t = from["TVShows"]  as? [[AnyHashable: Any]]
-        let m = from["Movies"]   as? [[AnyHashable: Any]]
-        let c = from["Capacity"] as? String
+        let t = from["TVShows"]  as? [[AnyHashable: Any]] ?? []
+        let m = from["Movies"]   as? [[AnyHashable: Any]] ?? []
+        return GondolaMetadata(tvShows: t.map(TVShowMetadata.parse),
+                               movies: [], // TODO
+                               capacity: from["Capacity"] as? String ?? "")
     }
 }
 
-TVShowMetadata
+extension TVShowMetadata {
+    static func parse(from: [AnyHashable: Any]) -> TVShowMetadata {
+        let s = from["Seasons"] as? [[AnyHashable: Any]] ?? []
+        return TVShowMetadata(tmdbId: from["TMDBId"] as? Int ?? 0,
+                              name: from["Name"] as? String ?? "",
+                              overview: from["Overview"] as? String ?? "",
+                              image: from["Image"] as? String ?? "",
+                              backdrop: from["Backdrop"] as? String ?? "",
+                              firstAirDate: from["FirstAirDate"] as? String ?? "",
+                              lastAirDate: from["LastAirDate"] as? String ?? "",
+                              seasons: s.map(TVSeasonMetadata.parse))
+    }
+}
 
 extension TVSeasonMetadata {
     static func parse(from: [AnyHashable: Any]) -> TVSeasonMetadata {
@@ -70,7 +84,7 @@ extension TVSeasonMetadata {
                                 overview: from["Overview"] as? String ?? "",
                                 image: from["Image"] as? String ?? "",
                                 airDate: from["AirDate"] as? String ?? "",
-                                episodes: eRaw.map(TVEpisodeMetadata.parse))
+                                episodes: e.map(TVEpisodeMetadata.parse))
     }
 }
 
