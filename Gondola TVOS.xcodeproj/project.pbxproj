@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		832E39471E4B0D5300A71CE6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E39461E4B0D5300A71CE6 /* Models.swift */; };
+		83D16B131E4B3CFF00C72196 /* MetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B121E4B3CFF00C72196 /* MetadataService.swift */; };
+		83D16B151E4B3D2000C72196 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B141E4B3D2000C72196 /* Result.swift */; };
+		83D16B171E4B3F1500C72196 /* ServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */; };
 		83D932721E48837400C228F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D932711E48837400C228F3 /* AppDelegate.swift */; };
 		83D932741E48837400C228F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D932731E48837400C228F3 /* ViewController.swift */; };
 		83D932791E48837400C228F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D932781E48837400C228F3 /* Assets.xcassets */; };
@@ -26,6 +29,9 @@
 
 /* Begin PBXFileReference section */
 		832E39461E4B0D5300A71CE6 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		83D16B121E4B3CFF00C72196 /* MetadataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataService.swift; sourceTree = "<group>"; };
+		83D16B141E4B3D2000C72196 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHelpers.swift; sourceTree = "<group>"; };
 		83D9326E1E48837400C228F3 /* Gondola TVOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gondola TVOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D932711E48837400C228F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83D932731E48837400C228F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				832E39461E4B0D5300A71CE6 /* Models.swift */,
+				83D16B121E4B3CFF00C72196 /* MetadataService.swift */,
+				83D16B141E4B3D2000C72196 /* Result.swift */,
+				83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -205,8 +214,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				832E39471E4B0D5300A71CE6 /* Models.swift in Sources */,
+				83D16B151E4B3D2000C72196 /* Result.swift in Sources */,
 				83D932741E48837400C228F3 /* ViewController.swift in Sources */,
+				83D16B131E4B3CFF00C72196 /* MetadataService.swift in Sources */,
 				83D932721E48837400C228F3 /* AppDelegate.swift in Sources */,
+				83D16B171E4B3F1500C72196 /* ServiceHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
