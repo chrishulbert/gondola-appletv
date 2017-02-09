@@ -13,9 +13,15 @@ struct MetadataService {
     typealias MetadataResult = Result<GondolaMetadata>
     
     static func request(completion: @escaping (MetadataResult) -> ()) {
-        
-        URL(
-        
+        ServiceHelpers.request(path: "metadata.json") {
+            switch $0 {
+            case .success(let json):
+                completion(.success(GondolaMetadata.parse(from: json)))
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
     
 }
