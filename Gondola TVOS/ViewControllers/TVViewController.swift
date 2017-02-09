@@ -65,11 +65,12 @@ class TVView: UIView {
         // TODO have a layout helper.
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        let itemWidth = round((size.width - 2*60 - 4*20) / 5)
+        let itemWidth = floor((size.width - 2*60 - 4*20) / 5)
         let itemHeight = round(itemWidth * 1.5)
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 20
+        layout.sectionInset = UIEdgeInsets(top: 60, left: 60, bottom: 60, right: 60)
         
         collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         
