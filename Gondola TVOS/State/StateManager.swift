@@ -12,12 +12,16 @@ class StateManager {
     
     static let shared = StateManager()
     
+    var metadata: GondolaMetadata!
+    
     var rootNav: UINavigationController!
     
     func appLaunch() {
         requestMetadataUntilSuccess { metadata in
             DispatchQueue.main.async {
-                self.rootNav.setViewControllers([TVViewController()], animated: true)
+                self.metadata = metadata
+                let tv = TVViewController(metadata: metadata)
+                self.rootNav.setViewControllers([tv], animated: true)
             }
         }
     }
