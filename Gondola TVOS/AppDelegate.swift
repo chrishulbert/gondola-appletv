@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        MetadataService.request {
+            switch $0 {
+            case .success(let metadata):
+                NSLog("Woo! \(metadata)")
+                
+            case .failure(let error):
+                NSLog("Less woo: \(error)")
+            }
+        }
+        
         return true
     }
 
