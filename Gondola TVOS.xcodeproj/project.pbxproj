@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		832E39471E4B0D5300A71CE6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E39461E4B0D5300A71CE6 /* Models.swift */; };
+		83C3F8761E4C7A3D00E7B2AD /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */; };
 		83D16B131E4B3CFF00C72196 /* MetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B121E4B3CFF00C72196 /* MetadataService.swift */; };
 		83D16B151E4B3D2000C72196 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B141E4B3D2000C72196 /* Result.swift */; };
 		83D16B171E4B3F1500C72196 /* ServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		832E39461E4B0D5300A71CE6 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		83D16B121E4B3CFF00C72196 /* MetadataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataService.swift; sourceTree = "<group>"; };
 		83D16B141E4B3D2000C72196 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHelpers.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		83C3F8741E4C7A3100E7B2AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		83D932651E48837400C228F3 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		83D932701E48837400C228F3 /* Gondola TVOS */ = {
 			isa = PBXGroup;
 			children = (
+				83C3F8741E4C7A3100E7B2AD /* ViewControllers */,
 				832E39451E4B0C5C00A71CE6 /* Services */,
 				83D932711E48837400C228F3 /* AppDelegate.swift */,
 				83D932731E48837400C228F3 /* ViewController.swift */,
@@ -213,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C3F8761E4C7A3D00E7B2AD /* LoadingViewController.swift in Sources */,
 				832E39471E4B0D5300A71CE6 /* Models.swift in Sources */,
 				83D16B151E4B3D2000C72196 /* Result.swift in Sources */,
 				83D932741E48837400C228F3 /* ViewController.swift in Sources */,
