@@ -12,6 +12,7 @@ struct ServiceHelpers {
     
     typealias JsonResult = Result<[AnyHashable: Any]>
     
+    /// Returns on any thread.
     static func request(path: String, completion: @escaping (JsonResult) -> ()) {
         guard let url = URL(string: path, relativeTo: K.baseUrl) else {
             completion(.failure(ServiceError.badUrl))

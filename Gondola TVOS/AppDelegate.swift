@@ -22,15 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
         
-        MetadataService.request {
-            switch $0 {
-            case .success(let metadata):
-                NSLog("Woo! \(metadata)")
-                
-            case .failure(let error):
-                NSLog("Less woo: \(error)")
-            }
-        }
+        StateManager.shared.rootNav = nav
+        StateManager.shared.appLaunch()
         
         return true
     }
