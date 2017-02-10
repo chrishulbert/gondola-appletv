@@ -31,7 +31,7 @@ class TVViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rootView.collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        rootView.collection.register(PictureCell.self, forCellWithReuseIdentifier: "cell")
         
         rootView.collection.dataSource = self
 //        rootView.collection.delegate = self
@@ -42,14 +42,34 @@ class TVViewController: UIViewController {
 extension TVViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10 // metadata.tvShows.count
+        return metadata.tvShows.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        let b = UIView()
-        b.backgroundColor = UIColor.white
-        cell.backgroundView = b
+        let show = metadata.tvShows[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PictureCell
+        
+        cell.label.text = show.name
+        
+        cell.image.image = nil
+        
+        // TODO use a reusable image view? Or some helper that checks for stale?
+        cell.imagePath = show.image
+        ServiceHelpers.imageRequest(path: show.image) { result in
+            DispatchQueue.main.async {
+                if cell.imagePath == show.image { // Cell hasn't been recycled?
+                    switch result {
+                    case .success(let image):
+                        cell.image.image = image
+                        
+                    case .failure:
+                        // TODO show sad cloud image.
+                        break
+                    }
+                }
+            }
+        }
+        
         return cell
     }
 
@@ -65,11 +85,11 @@ class TVView: UIView {
         // TODO have a layout helper.
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        let itemWidth = floor((size.width - 2*60 - 4*20) / 5)
-        let itemHeight = round(itemWidth * 1.5)
+        let itemWidth = floor((size.width - 2*60) / 5)
+        let itemHeight = round(itemWidth * 1.5) + PictureCell.K.labelGap + PictureCell.K.labelHeight
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        layout.minimumLineSpacing = 20
-        layout.minimumInteritemSpacing = 20
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 60, left: 60, bottom: 60, right: 60)
         
         collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)

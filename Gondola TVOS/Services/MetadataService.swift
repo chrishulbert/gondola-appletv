@@ -13,7 +13,7 @@ struct MetadataService {
     typealias MetadataResult = Result<GondolaMetadata>
     
     static func request(completion: @escaping (MetadataResult) -> ()) {
-        ServiceHelpers.request(path: "metadata.json") {
+        ServiceHelpers.jsonRequest(path: "metadata.json") {
             switch $0 {
             case .success(let json):
                 completion(.success(GondolaMetadata.parse(from: json)))

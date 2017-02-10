@@ -7,24 +7,37 @@
 //
 
 import Foundation
+import UIKit
 
 struct ServiceHelpers {
     
     typealias JsonResult = Result<[AnyHashable: Any]>
+    typealias ImageResult = Result<UIImage>
     
     /// Returns on any thread.
-    static func request(path: String, completion: @escaping (JsonResult) -> ()) {
+    static func jsonRequest(path: String, completion: @escaping (JsonResult) -> ()) {
         guard let url = URL(string: path, relativeTo: K.baseUrl) else {
             completion(.failure(ServiceError.badUrl))
             return
         }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(result(data: data, response: response, error: error))
+            completion(jsonResult(data: data, response: response, error: error))
         }
         task.resume()
     }
     
-    fileprivate static func result(data: Data?, response: URLResponse?, error: Error?) -> JsonResult {
+    static func imageRequest(path: String, completion: @escaping (ImageResult) -> ()) {
+        guard let url = URL(string: path, relativeTo: K.baseUrl) else {
+            completion(.failure(ServiceError.badUrl))
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(imageResult(data: data, response: response, error: error))
+        }
+        task.resume()
+    }
+    
+    fileprivate static func jsonResult(data: Data?, response: URLResponse?, error: Error?) -> JsonResult {
         if let error = error {
             return .failure(error)
         }
@@ -42,7 +55,24 @@ struct ServiceHelpers {
         }
         return .success(dict)
     }
-    
+
+    fileprivate static func imageResult(data: Data?, response: URLResponse?, error: Error?) -> ImageResult {
+        if let error = error {
+            return .failure(error)
+        }
+        if let response = response as? HTTPURLResponse, response.statusCode > 400 {
+            return .failure(ServiceError.httpError(response.statusCode))
+        }
+        guard let data = data else {
+            return .failure(ServiceError.noData)
+        }
+        guard let image = UIImage(data: data) else {
+            return .failure(ServiceError.notImage)
+        }
+        // TODO load the image to the GPU.
+        return .success(image)
+    }
+
     struct K {
         static let baseUrl = URL(string: "http://gondola")!
     }
@@ -53,6 +83,7 @@ struct ServiceHelpers {
         case noData
         case notJson
         case notDictionary
+        case notImage
     }
 
 }

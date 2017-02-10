@@ -11,6 +11,7 @@
 		83C3F8761E4C7A3D00E7B2AD /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */; };
 		83C3F8791E4C7BD900E7B2AD /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8781E4C7BD900E7B2AD /* StateManager.swift */; };
 		83C3F87B1E4C7C8D00E7B2AD /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F87A1E4C7C8D00E7B2AD /* TVViewController.swift */; };
+		83C3F87E1E4DD24500E7B2AD /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F87D1E4DD24500E7B2AD /* PictureCell.swift */; };
 		83D16B131E4B3CFF00C72196 /* MetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B121E4B3CFF00C72196 /* MetadataService.swift */; };
 		83D16B151E4B3D2000C72196 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B141E4B3D2000C72196 /* Result.swift */; };
 		83D16B171E4B3F1500C72196 /* ServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */; };
@@ -35,6 +36,7 @@
 		83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		83C3F8781E4C7BD900E7B2AD /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		83C3F87A1E4C7C8D00E7B2AD /* TVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
+		83C3F87D1E4DD24500E7B2AD /* PictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		83D16B121E4B3CFF00C72196 /* MetadataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataService.swift; sourceTree = "<group>"; };
 		83D16B141E4B3D2000C72196 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHelpers.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 			path = State;
 			sourceTree = "<group>";
 		};
+		83C3F87C1E4DD1E400E7B2AD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				83C3F87D1E4DD24500E7B2AD /* PictureCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		83D932651E48837400C228F3 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		83D932701E48837400C228F3 /* Gondola TVOS */ = {
 			isa = PBXGroup;
 			children = (
+				83C3F87C1E4DD1E400E7B2AD /* Cells */,
 				83C3F8771E4C7BD300E7B2AD /* State */,
 				83C3F8741E4C7A3100E7B2AD /* ViewControllers */,
 				832E39451E4B0C5C00A71CE6 /* Services */,
@@ -240,6 +251,7 @@
 			files = (
 				83C3F8761E4C7A3D00E7B2AD /* LoadingViewController.swift in Sources */,
 				83C3F8791E4C7BD900E7B2AD /* StateManager.swift in Sources */,
+				83C3F87E1E4DD24500E7B2AD /* PictureCell.swift in Sources */,
 				832E39471E4B0D5300A71CE6 /* Models.swift in Sources */,
 				83C3F87B1E4C7C8D00E7B2AD /* TVViewController.swift in Sources */,
 				83D16B151E4B3D2000C72196 /* Result.swift in Sources */,
