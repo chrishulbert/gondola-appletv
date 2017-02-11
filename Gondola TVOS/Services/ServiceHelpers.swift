@@ -16,7 +16,7 @@ struct ServiceHelpers {
     
     /// Returns on any thread.
     static func jsonRequest(path: String, completion: @escaping (JsonResult) -> ()) {
-        guard let url = URL(string: path, relativeTo: K.baseUrl) else {
+        guard let url = url(path: path) else {
             completion(.failure(ServiceError.badUrl))
             return
         }
@@ -27,7 +27,7 @@ struct ServiceHelpers {
     }
     
     static func imageRequest(path: String, completion: @escaping (ImageResult) -> ()) {
-        guard let url = URL(string: path, relativeTo: K.baseUrl) else {
+        guard let url = url(path: path) else {
             completion(.failure(ServiceError.badUrl))
             return
         }
@@ -35,6 +35,11 @@ struct ServiceHelpers {
             completion(imageResult(data: data, response: response, error: error))
         }
         task.resume()
+    }
+    
+    fileprivate static func url(path: String) -> URL? {
+        guard let encoded = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed) else { return nil }
+        return URL(string: encoded, relativeTo: K.baseUrl)
     }
     
     fileprivate static func jsonResult(data: Data?, response: URLResponse?, error: Error?) -> JsonResult {

@@ -62,9 +62,9 @@ extension TVViewController: UICollectionViewDataSource {
                     case .success(let image):
                         cell.image.image = image
                         
-                    case .failure:
+                    case .failure(let error):
+                        NSLog("error: \(error)")
                         // TODO show sad cloud image.
-                        break
                     }
                 }
             }
