@@ -97,6 +97,10 @@ class TVView: UIView {
         
         collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         
+        let back = UIImageView(image: #imageLiteral(resourceName: "Background"))
+        back.contentMode = .scaleAspectFill
+        collection.backgroundView = back
+        
         super.init(frame: CGRect.zero)
         
         addSubview(collection)

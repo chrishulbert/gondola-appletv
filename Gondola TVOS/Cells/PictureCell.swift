@@ -41,8 +41,7 @@ class PictureCell: UICollectionViewCell {
         let imageNormalWidth = floor(w / K.focusGrowth)
         let imageNormalHeight = floor((h - 2 * labelHeight) / K.focusGrowth)
         
-        MAKE IT IN THE TOP HALF NOT CENTERED
-        image.frame = CGRect(x: round(w/2 - imageNormalWidth/2), y: round(h/2 - imageNormalHeight/2), width: imageNormalWidth, height: imageNormalHeight)
+        image.frame = CGRect(x: round(w/2 - imageNormalWidth/2), y: round((h - 1.5*labelHeight)/2 - imageNormalHeight/2), width: imageNormalWidth, height: imageNormalHeight)
         label.frame = CGRect(x: 0, y: h - labelHeight, width: w, height: labelHeight)
     }
     
