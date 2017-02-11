@@ -83,14 +83,17 @@ class TVView: UIView {
         let size = UIScreen.main.bounds.size
         
         // TODO have a layout helper.
+        let vertMargins: CGFloat = 60
+        let sideMargins: CGFloat = 90 // https://developer.apple.com/tvos/human-interface-guidelines/visual-design/
+        let columns = 5
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        let itemWidth = floor((size.width - 2*60) / 5)
-        let itemHeight = round(itemWidth * 1.5) + PictureCell.K.labelGap + PictureCell.K.labelHeight
+        let itemWidth = floor((size.width - 2*sideMargins) / CGFloat(columns))
+        let itemHeight = PictureCell.height(forWidth: itemWidth, imageAspectRatio: 1.5)
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 60, left: 60, bottom: 60, right: 60)
+        layout.sectionInset = UIEdgeInsets(top: vertMargins, left: sideMargins, bottom: vertMargins, right: sideMargins)
         
         collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         

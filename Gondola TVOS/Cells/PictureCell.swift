@@ -24,6 +24,8 @@ class PictureCell: UICollectionViewCell {
         
         label.textAlignment = .center
         label.textColor = UIColor.white
+        label.font = K.labelFont
+        label.alpha = 0
         addSubview(label)
     }
     
@@ -35,15 +37,49 @@ class PictureCell: UICollectionViewCell {
         super.layoutSubviews()
         let w = bounds.width
         let h = bounds.height
-
-        image.frame = CGRect(x: 0, y: 0, width: w, height: h - K.labelHeight - K.labelGap)
-        label.frame = CGRect(x: 0, y: h - K.labelHeight, width: w, height: K.labelHeight)
+        let labelHeight = ceil(K.labelFont.lineHeight)
+        let imageNormalWidth = floor(w / K.focusGrowth)
+        let imageNormalHeight = floor((h - 2 * labelHeight) / K.focusGrowth)
+        
+        MAKE IT IN THE TOP HALF NOT CENTERED
+        image.frame = CGRect(x: round(w/2 - imageNormalWidth/2), y: round(h/2 - imageNormalHeight/2), width: imageNormalWidth, height: imageNormalHeight)
+        label.frame = CGRect(x: 0, y: h - labelHeight, width: w, height: labelHeight)
     }
     
-    struct K {
-        static let labelHeight: CGFloat = 46
-        static let labelGap: CGFloat = 40 // To allow for the growth of the image when selected.
+    /// Best height for the given width.
+    /// Aspect ratio is such that when multiplied by width, it gives height.
+    static func height(forWidth: CGFloat, imageAspectRatio: CGFloat) -> CGFloat {
+        let labelHeight = ceil(K.labelFont.lineHeight)
+        let imageHeight = round(forWidth * imageAspectRatio)
+        return labelHeight * 2 + imageHeight
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        super.didUpdateFocus(in: context, with: coordinator)
 
+        let newAlpha: CGFloat = isFocused ? 1 : 0
+        coordinator.addCoordinatedAnimations({
+            self.label.alpha = newAlpha
+        }, completion: nil)
+    }
+    
+//    override var isHighlighted: Bool {
+//    }
+    
+//    override var isSelected: Bool {
+//        didSet {
+//            let newAlpha: CGFloat = isSelected ? 1 : 0
+//            UIView.animate(withDuration: 0.3, delay: 0, options: .beginFromCurrentState, animations: {
+//                self.label.alpha = newAlpha
+//            }, completion: nil)
+//        }
+//    }
+    
+    struct K {
+        // When focused, grows from 360 to 407 Horiz (1.13)
+        // 540 to 610 (1.13x)
+        static let focusGrowth: CGFloat = 1.13
+        static let labelFont = UIFont.systemFont(ofSize: 30, weight: UIFontWeightThin)
     }
         
 }
