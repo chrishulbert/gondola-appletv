@@ -158,21 +158,23 @@ class TVSeasonEpisodesView: UIView {
         
         dim.frame = CGRect(x: 0, y: 0, width: w - collectionWidth, height: h)
         
+        let textWidth = w - collectionWidth - 2*LayoutHelpers.sideMargins
+        
         title.frame = CGRect(x: LayoutHelpers.sideMargins,
                              y: LayoutHelpers.vertMargins,
-                             width: w/2 - 2*LayoutHelpers.sideMargins,
+                             width: textWidth,
                              height: ceil(title.font.lineHeight))
         
         let overviewTop = title.frame.maxY + 40
-        let overviewBottom = collection.frame.minY - LayoutHelpers.vertMargins
-        let overviewWidth = w/2 - 2*LayoutHelpers.sideMargins
+        let overviewBottom = h - LayoutHelpers.vertMargins
+        let overviewWidth = textWidth
         let maxOverviewHeight = overviewBottom - overviewTop
         let textOverviewHeight = ceil(overview.sizeThatFits(CGSize(width: overviewWidth, height: 999)).height)
         let overviewHeight = min(textOverviewHeight, maxOverviewHeight)
         overview.frame = CGRect(x: LayoutHelpers.sideMargins,
                                 y: overviewTop,
-                                width: 100, //overviewWidth,
-                                height: 100) //overviewHeight)
+                                width: overviewWidth,
+                                height: overviewHeight)
     }
     
     struct K {
