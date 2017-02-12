@@ -37,6 +37,9 @@ class TVShowSeasonsViewController: UIViewController {
         rootView.collection.dataSource = self
         // rootView.collection.delegate = self
         
+        rootView.title.text = show.name
+        rootView.overview.text = show.overview
+        
         // Load the backdrop.
         ServiceHelpers.imageRequest(path: show.backdrop) { result in
             switch result {
@@ -95,13 +98,12 @@ extension TVShowSeasonsViewController: UICollectionViewDataSource {
 class TVShowSeasonsView: UIView {
     
     let background = UIImageView()
+    let title = UILabel()
+    let overview = UILabel()
     let collection: UICollectionView
     let layout = UICollectionViewFlowLayout()
     
     init() {
-        background.contentMode = .scaleAspectFill
-        background.alpha = 0
-        
         // TODO have a layout helper.
         layout.scrollDirection = .horizontal
         let itemWidth = PictureCell.width(forHeight: K.itemHeight, imageAspectRatio: 1.5)
@@ -115,7 +117,19 @@ class TVShowSeasonsView: UIView {
         
         super.init(frame: CGRect.zero)
         
+        background.contentMode = .scaleAspectFill
+        background.alpha = 0
         addSubview(background)
+        
+        title.textColor = UIColor.white
+        title.font = UIFont.systemFont(ofSize: 60, weight: UIFontWeightThin)
+        addSubview(title)
+        
+        overview.textColor = UIColor.white
+        overview.font = UIFont.systemFont(ofSize: 30, weight: UIFontWeightLight)
+        overview.numberOfLines = 0
+        addSubview(overview)
+        
         addSubview(collection)
     }
     
@@ -132,6 +146,20 @@ class TVShowSeasonsView: UIView {
         
         let collectionHeight = K.itemHeight + layout.sectionInset.top + layout.sectionInset.bottom
         collection.frame = CGRect(x: 0, y: h - collectionHeight, width: w, height: collectionHeight)
+        
+        title.frame = CGRect(x: LayoutHelpers.sideMargins, y: LayoutHelpers.vertMargins,
+                             width: w - 2*LayoutHelpers.sideMargins, height: ceil(title.font.lineHeight))
+        
+        let overviewTop = title.frame.maxY + 40
+        let overviewBottom = collection.frame.minY - LayoutHelpers.vertMargins
+        let overviewWidth = (w - LayoutHelpers.sideMargins)/2
+        let maxOverviewHeight = overviewBottom - overviewTop
+        let textOverviewHeight = ceil(overview.sizeThatFits(CGSize(width: overviewWidth, height: 999)).height)
+        let overviewHeight = min(textOverviewHeight, maxOverviewHeight)
+        overview.frame = CGRect(x: LayoutHelpers.sideMargins,
+                                y: overviewTop,
+                                width: overviewWidth,
+                                height: overviewHeight)
     }
     
     struct K {
