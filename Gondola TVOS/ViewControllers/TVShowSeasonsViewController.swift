@@ -98,6 +98,7 @@ extension TVShowSeasonsViewController: UICollectionViewDataSource {
 class TVShowSeasonsView: UIView {
     
     let background = UIImageView()
+    let dim = UIView()
     let title = UILabel()
     let overview = UILabel()
     let collection: UICollectionView
@@ -120,6 +121,9 @@ class TVShowSeasonsView: UIView {
         background.contentMode = .scaleAspectFill
         background.alpha = 0
         addSubview(background)
+        
+        dim.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        addSubview(dim)
         
         title.textColor = UIColor.white
         title.font = UIFont.systemFont(ofSize: 60, weight: UIFontWeightThin)
@@ -146,6 +150,8 @@ class TVShowSeasonsView: UIView {
         
         let collectionHeight = K.itemHeight + layout.sectionInset.top + layout.sectionInset.bottom
         collection.frame = CGRect(x: 0, y: h - collectionHeight, width: w, height: collectionHeight)
+        
+        dim.frame = CGRect(x: 0, y: 0, width: w, height: collection.frame.minY)
         
         title.frame = CGRect(x: LayoutHelpers.sideMargins, y: LayoutHelpers.vertMargins,
                              width: w - 2*LayoutHelpers.sideMargins, height: ceil(title.font.lineHeight))
