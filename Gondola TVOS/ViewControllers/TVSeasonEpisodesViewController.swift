@@ -73,7 +73,7 @@ extension TVSeasonEpisodesViewController: UICollectionViewDataSource {
         let episode = season.episodes[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PictureCell
         
-        cell.label.text = episode.name
+        cell.label.text = String(episode.episode) + ": " + episode.name
         
         cell.image.image = nil
         cell.imageAspectRatio = 9/16
