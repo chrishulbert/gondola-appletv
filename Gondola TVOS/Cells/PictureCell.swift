@@ -53,6 +53,12 @@ class PictureCell: UICollectionViewCell {
         return labelHeight * 2 + imageHeight
     }
     
+    static func width(forHeight: CGFloat, imageAspectRatio: CGFloat) -> CGFloat {
+        let labelHeight = ceil(K.labelFont.lineHeight)
+        let imageHeight = forHeight - 2 * labelHeight
+        return round(imageHeight / imageAspectRatio)
+    }
+    
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         super.didUpdateFocus(in: context, with: coordinator)
 

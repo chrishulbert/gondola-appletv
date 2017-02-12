@@ -34,7 +34,7 @@ class TVViewController: UIViewController {
         rootView.collection.register(PictureCell.self, forCellWithReuseIdentifier: "cell")
         
         rootView.collection.dataSource = self
-//        rootView.collection.delegate = self
+        rootView.collection.delegate = self
     }
     
 }
@@ -75,6 +75,14 @@ extension TVViewController: UICollectionViewDataSource {
 
 }
 
+extension TVViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let show = metadata.tvShows[indexPath.item]
+        let vc = TVShowSeasonsViewController(show: show)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 class TVView: UIView {
     
     let collection: UICollectionView
@@ -83,17 +91,15 @@ class TVView: UIView {
         let size = UIScreen.main.bounds.size
         
         // TODO have a layout helper.
-        let vertMargins: CGFloat = 60
-        let sideMargins: CGFloat = 90 // https://developer.apple.com/tvos/human-interface-guidelines/visual-design/
         let columns = 5
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        let itemWidth = floor((size.width - 2*sideMargins) / CGFloat(columns))
+        let itemWidth = floor((size.width - 2*LayoutHelpers.sideMargins) / CGFloat(columns))
         let itemHeight = PictureCell.height(forWidth: itemWidth, imageAspectRatio: 1.5)
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: vertMargins, left: sideMargins, bottom: vertMargins, right: sideMargins)
+        layout.sectionInset = UIEdgeInsets(top: LayoutHelpers.vertMargins, left: LayoutHelpers.sideMargins, bottom: LayoutHelpers.vertMargins, right: LayoutHelpers.sideMargins)
         
         collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         
