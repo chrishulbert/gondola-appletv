@@ -14,6 +14,7 @@ class PictureCell: UICollectionViewCell {
     let label = UILabel()
     
     var imagePath: String? // For checking for stale image loads on recycled cells.
+    var imageAspectRatio: CGFloat = 1.5
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,8 +39,8 @@ class PictureCell: UICollectionViewCell {
         let w = bounds.width
         let h = bounds.height
         let labelHeight = ceil(K.labelFont.lineHeight)
-        let imageNormalWidth = floor(w / K.focusGrowth)
-        let imageNormalHeight = floor((h - 2 * labelHeight) / K.focusGrowth)
+        let imageNormalWidth = floor(w - K.focusGrowthHorizontal)
+        let imageNormalHeight = imageNormalWidth * imageAspectRatio
         
         image.frame = CGRect(x: round(w/2 - imageNormalWidth/2), y: round((h - 1.5*labelHeight)/2 - imageNormalHeight/2), width: imageNormalWidth, height: imageNormalHeight)
         label.frame = CGRect(x: 0, y: h - labelHeight, width: w, height: labelHeight)
@@ -81,9 +82,11 @@ class PictureCell: UICollectionViewCell {
 //    }
     
     struct K {
-        // When focused, grows from 360 to 407 Horiz (1.13)
+        // Smaller goes from 148 to 195 (1.32). 47 wider.
+        
+        // When focused, grows from 360 to 407 Horiz (1.13). 47 wider.
         // 540 to 610 (1.13x)
-        static let focusGrowth: CGFloat = 1.13
+        static let focusGrowthHorizontal: CGFloat = 47
         static let labelFont = UIFont.systemFont(ofSize: 30, weight: UIFontWeightThin)
     }
         

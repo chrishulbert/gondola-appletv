@@ -72,6 +72,7 @@ extension TVShowSeasonsViewController: UICollectionViewDataSource {
         cell.label.text = season.name
         
         cell.image.image = nil
+        cell.imageAspectRatio = 1.5
         
         // TODO use a reusable image view? Or some helper that checks for stale?
         cell.imagePath = season.image
