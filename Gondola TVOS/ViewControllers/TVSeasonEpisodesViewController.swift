@@ -13,10 +13,12 @@ class TVSeasonEpisodesViewController: UIViewController {
     
     let show: TVShowMetadata
     let season: TVSeasonMetadata
+    let backdrop: UIImage?
     
-    init(show: TVShowMetadata, season: TVSeasonMetadata) {
+    init(show: TVShowMetadata, season: TVSeasonMetadata, backdrop: UIImage?) {
         self.show = show
         self.season = season
+        self.backdrop = backdrop
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -25,7 +27,7 @@ class TVSeasonEpisodesViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var rootView = TVShowSeasonsView()
+    lazy var rootView = TVSeasonEpisodesView()
     
     override func loadView() {
         view = rootView
@@ -39,8 +41,8 @@ class TVSeasonEpisodesViewController: UIViewController {
         rootView.collection.dataSource = self
         // rootView.collection.delegate = self
         
-        rootView.title.text = show.name
-        rootView.overview.text = show.overview
+        rootView.title.text = season.name
+        rootView.overview.text = season.overview
         
         // Load the backdrop.
         ServiceHelpers.imageRequest(path: show.backdrop) { result in
@@ -68,19 +70,19 @@ extension TVSeasonEpisodesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let season = show.seasons[indexPath.item]
+        let episode = season.episodes[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PictureCell
         
-        cell.label.text = season.name
+        cell.label.text = episode.name
         
         cell.image.image = nil
-        cell.imageAspectRatio = 1.5
+        cell.imageAspectRatio = 9/16
         
         // TODO use a reusable image view? Or some helper that checks for stale?
-        cell.imagePath = season.image
-        ServiceHelpers.imageRequest(path: season.image) { result in
+        cell.imagePath = episode.image
+        ServiceHelpers.imageRequest(path: episode.image) { result in
             DispatchQueue.main.async {
-                if cell.imagePath == season.image { // Cell hasn't been recycled?
+                if cell.imagePath == episode.image { // Cell hasn't been recycled?
                     switch result {
                     case .success(let image):
                         cell.image.image = image
@@ -109,12 +111,12 @@ class TVSeasonEpisodesView: UIView {
     
     init() {
         // TODO have a layout helper.
-        layout.scrollDirection = .horizontal
-        let itemWidth = PictureCell.width(forHeight: K.itemHeight, imageAspectRatio: 1.5)
-        layout.itemSize = CGSize(width: itemWidth, height: K.itemHeight)
+        layout.scrollDirection = .vertical
+        let itemHeight = PictureCell.height(forWidth: K.itemWidth, imageAspectRatio: 9/16)
+        layout.itemSize = CGSize(width: K.itemWidth, height: itemHeight)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 0, left: LayoutHelpers.sideMargins, bottom: LayoutHelpers.vertMargins, right: LayoutHelpers.sideMargins)
+        layout.sectionInset = UIEdgeInsets(top: LayoutHelpers.vertMargins, left: LayoutHelpers.sideMargins, bottom: LayoutHelpers.vertMargins, right: LayoutHelpers.sideMargins)
         
         collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         collection.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.dark))
@@ -151,31 +153,30 @@ class TVSeasonEpisodesView: UIView {
         
         background.frame = bounds
         
-        let collectionHeight = K.itemHeight + layout.sectionInset.top + layout.sectionInset.bottom
-        collection.frame = CGRect(x: 0, y: h - collectionHeight, width: w, height: collectionHeight)
+        let collectionWidth = K.itemWidth + 2*LayoutHelpers.sideMargins
+        collection.frame = CGRect(x: w - collectionWidth, y: 0, width: collectionWidth, height: h)
         
-        dim.frame = CGRect(x: 0, y: 0, width: w, height: collection.frame.minY)
+        dim.frame = CGRect(x: 0, y: 0, width: w - collectionWidth, height: h)
         
-        title.frame = CGRect(x: LayoutHelpers.sideMargins, y: LayoutHelpers.vertMargins,
-                             width: w - 2*LayoutHelpers.sideMargins, height: ceil(title.font.lineHeight))
+        title.frame = CGRect(x: LayoutHelpers.sideMargins,
+                             y: LayoutHelpers.vertMargins,
+                             width: w/2 - 2*LayoutHelpers.sideMargins,
+                             height: ceil(title.font.lineHeight))
         
         let overviewTop = title.frame.maxY + 40
         let overviewBottom = collection.frame.minY - LayoutHelpers.vertMargins
-        let overviewWidth = (w - LayoutHelpers.sideMargins)/2
+        let overviewWidth = w/2 - 2*LayoutHelpers.sideMargins
         let maxOverviewHeight = overviewBottom - overviewTop
         let textOverviewHeight = ceil(overview.sizeThatFits(CGSize(width: overviewWidth, height: 999)).height)
         let overviewHeight = min(textOverviewHeight, maxOverviewHeight)
         overview.frame = CGRect(x: LayoutHelpers.sideMargins,
                                 y: overviewTop,
-                                width: overviewWidth,
-                                height: overviewHeight)
+                                width: 100, //overviewWidth,
+                                height: 100) //overviewHeight)
     }
     
     struct K {
-        static let itemUnfocusedHeightToScreenHeightRatio: CGFloat = 0.3
-        static let itemHeight: CGFloat = {
-            return round(UIScreen.main.bounds.height * itemUnfocusedHeightToScreenHeightRatio)
-        }()
+        static let itemWidth: CGFloat = round(UIScreen.main.bounds.width/4)
     }
     
 }

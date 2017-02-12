@@ -35,7 +35,7 @@ class TVShowSeasonsViewController: UIViewController {
         rootView.collection.register(PictureCell.self, forCellWithReuseIdentifier: "cell")
         
         rootView.collection.dataSource = self
-        // rootView.collection.delegate = self
+        rootView.collection.delegate = self
         
         rootView.title.text = show.name
         rootView.overview.text = show.overview
@@ -94,6 +94,14 @@ extension TVShowSeasonsViewController: UICollectionViewDataSource {
         return cell
     }
     
+}
+
+extension TVShowSeasonsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let season = show.seasons[indexPath.item]
+        let vc = TVSeasonEpisodesViewController(show: show, season: season, backdrop: rootView.background.image)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 class TVShowSeasonsView: UIView {
