@@ -43,22 +43,7 @@ class TVSeasonEpisodesViewController: UIViewController {
         
         rootView.title.text = season.name
         rootView.overview.text = season.overview
-        
-        // Load the backdrop.
-        ServiceHelpers.imageRequest(path: show.backdrop) { result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self.rootView.background.image = image
-                    UIView.animate(withDuration: 0.3) {
-                        self.rootView.background.alpha = 1
-                    }
-                }
-                
-            case .failure(let error):
-                NSLog("Error loading backdrop: \(error)")
-            }
-        }
+        rootView.background.image = backdrop
     }
     
 }
@@ -66,7 +51,7 @@ class TVSeasonEpisodesViewController: UIViewController {
 extension TVSeasonEpisodesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return show.seasons.count
+        return season.episodes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -100,6 +85,8 @@ extension TVSeasonEpisodesViewController: UICollectionViewDataSource {
     
 }
 
+//todo delegate -> play!
+
 class TVSeasonEpisodesView: UIView {
     
     let background = UIImageView()
@@ -124,7 +111,6 @@ class TVSeasonEpisodesView: UIView {
         super.init(frame: CGRect.zero)
         
         background.contentMode = .scaleAspectFill
-        background.alpha = 0
         addSubview(background)
         
         dim.backgroundColor = UIColor(white: 0, alpha: 0.5)
