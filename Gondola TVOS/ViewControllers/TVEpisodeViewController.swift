@@ -57,6 +57,7 @@ class TVEpisodeView: UIView {
     let overview = UILabel()
     let episodeImage = UIImageView()
     let details = UILabel()
+    let play = UIButton(type: .system)
     
     init() {
         super.init(frame: CGRect.zero)
@@ -83,6 +84,9 @@ class TVEpisodeView: UIView {
         details.numberOfLines = 0
         details.font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightLight)
         addSubview(details)
+        
+        play.setTitle("Play", for: .normal)
+        addSubview(play)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -135,6 +139,12 @@ class TVEpisodeView: UIView {
                                 y: overviewTop,
                                 width: overviewWidth,
                                 height: overviewHeight)
+        
+        // Center bottom.
+        let playSize = play.intrinsicContentSize
+        play.frame = CGRect(origin: CGPoint(x: round(w/2 - playSize.width/2),
+                                            y: round(h - LayoutHelpers.vertMargins - playSize.height - 8)), // -8 to compensate for focus growth
+                            size: playSize)
     }
     
 }
