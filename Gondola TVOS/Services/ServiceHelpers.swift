@@ -37,7 +37,7 @@ struct ServiceHelpers {
         task.resume()
     }
     
-    fileprivate static func url(path: String) -> URL? {
+    static func url(path: String) -> URL? {
         guard let encoded = path.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed) else { return nil }
         return URL(string: encoded, relativeTo: K.baseUrl)
     }

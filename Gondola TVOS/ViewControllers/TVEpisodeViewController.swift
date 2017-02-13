@@ -8,6 +8,7 @@
 //  This shows the details of an episode and lets you play it.
 
 import UIKit
+import AVKit
 
 class TVEpisodeViewController: UIViewController {
     
@@ -45,6 +46,17 @@ class TVEpisodeViewController: UIViewController {
         rootView.background.image = backdrop
         rootView.episodeImage.image = episodeImage
         rootView.details.text = season.name + "\nEpisode \(episode.episode)\nAir date: \(episode.airDate)\nVote: \(episode.vote)"
+        
+        rootView.play.addTarget(self, action: #selector(tapPlay), for: .primaryActionTriggered)
+    }
+    
+    func tapPlay() {
+        guard let url = ServiceHelpers.url(path: episode.media) else { return }
+        let vc = AVPlayerViewController()
+        vc.player = AVPlayer(url: url)
+        present(vc, animated: true, completion: { [weak vc] in
+            vc?.player?.play()
+        })
     }
     
 }
