@@ -1,15 +1,15 @@
 //
-//  TVViewController.swift
+//  MoviesViewController.swift
 //  Gondola TVOS
 //
-//  Created by Chris on 9/02/2017.
+//  Created by Chris on 14/02/2017.
 //  Copyright © 2017 Chris Hulbert. All rights reserved.
 //
-//  List of all tv shows.
+//  Lists the movies.
 
 import UIKit
 
-class TVViewController: UIViewController {
+class MoviesViewController: UIViewController {
     
     let metadata: GondolaMetadata
     
@@ -23,7 +23,7 @@ class TVViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var rootView = TVView()
+    lazy var rootView = MoviesView()
     
     override func loadView() {
         view = rootView
@@ -40,26 +40,26 @@ class TVViewController: UIViewController {
     
 }
 
-extension TVViewController: UICollectionViewDataSource {
+extension MoviesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return metadata.tvShows.count
+        return metadata.movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let show = metadata.tvShows[indexPath.item]
+        let movie = metadata.movies[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PictureCell
         
-        cell.label.text = show.name
+        cell.label.text = movie.name
         
         cell.image.image = nil
         cell.imageAspectRatio = 1.5
         
         // TODO use a reusable image view? Or some helper that checks for stale?
-        cell.imagePath = show.image
-        ServiceHelpers.imageRequest(path: show.image) { result in
+        cell.imagePath = movie.image
+        ServiceHelpers.imageRequest(path: movie.image) { result in
             DispatchQueue.main.async {
-                if cell.imagePath == show.image { // Cell hasn't been recycled?
+                if cell.imagePath == movie.image { // Cell hasn't been recycled?
                     switch result {
                     case .success(let image):
                         cell.image.image = image
@@ -74,18 +74,19 @@ extension TVViewController: UICollectionViewDataSource {
         
         return cell
     }
-
+    
 }
 
-extension TVViewController: UICollectionViewDelegate {
+extension MoviesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let show = metadata.tvShows[indexPath.item]
-        let vc = TVShowSeasonsViewController(show: show)
-        navigationController?.pushViewController(vc, animated: true)
+        let movie = metadata.movies[indexPath.item]
+        // TODO
+//        let vc = TVShowSeasonsViewController(show: show)
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-class TVView: UIView {
+class MoviesView: UIView {
     
     let collection: UICollectionView
     
@@ -120,7 +121,7 @@ class TVView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
+        
         collection.frame = bounds
     }
     

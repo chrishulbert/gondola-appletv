@@ -15,7 +15,13 @@ struct GondolaMetadata {
 }
 
 struct MovieMetadata {
-    // TODO
+    let tmdbId:       Int
+    let name:         String
+    let overview:     String
+    let image:        String
+    let backdrop:     String
+    let releaseDate:  String // eg "1989-07-05"
+    let vote:         Float
 }
 
 struct TVShowMetadata {
@@ -55,9 +61,21 @@ extension GondolaMetadata {
     static func parse(from: [AnyHashable: Any]) -> GondolaMetadata {
         let t = from["TVShows"]  as? [[AnyHashable: Any]] ?? []
         let m = from["Movies"]   as? [[AnyHashable: Any]] ?? []
-        return GondolaMetadata(tvShows: t.map(TVShowMetadata.parse),
-                               movies: [], // TODO
+        return GondolaMetadata(tvShows:  t.map(TVShowMetadata.parse),
+                               movies:   m.map(MovieMetadata.parse),
                                capacity: from["Capacity"] as? String ?? "")
+    }
+}
+
+extension MovieMetadata {
+    static func parse(from: [AnyHashable: Any]) -> MovieMetadata {
+        return MovieMetadata(tmdbId:      from["TMDBId"] as? Int ?? 0,
+                             name:        from["Name"] as? String ?? "",
+                             overview:    from["Overview"] as? String ?? "",
+                             image:       from["Image"] as? String ?? "",
+                             backdrop:    from["Backdrop"] as? String ?? "",
+                             releaseDate: from["ReleaseDate"] as? String ?? "",
+                             vote:        from["Vote"] as? Float ?? 0)
     }
 }
 

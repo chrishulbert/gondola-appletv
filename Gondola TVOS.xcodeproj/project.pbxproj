@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		832E39471E4B0D5300A71CE6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E39461E4B0D5300A71CE6 /* Models.swift */; };
+		83ADC6EB1E53088500EAD65E /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADC6EA1E53088500EAD65E /* MoviesViewController.swift */; };
 		83C3F8761E4C7A3D00E7B2AD /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */; };
 		83C3F8791E4C7BD900E7B2AD /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8781E4C7BD900E7B2AD /* StateManager.swift */; };
 		83C3F87B1E4C7C8D00E7B2AD /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F87A1E4C7C8D00E7B2AD /* TVViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		832E39461E4B0D5300A71CE6 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		83ADC6EA1E53088500EAD65E /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		83C3F8781E4C7BD900E7B2AD /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		83C3F87A1E4C7C8D00E7B2AD /* TVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				83C3F87F1E4FE60200E7B2AD /* TVShowSeasonsViewController.swift */,
 				83C3F8841E4FFD6C00E7B2AD /* TVSeasonEpisodesViewController.swift */,
 				83C3F8861E51AF4400E7B2AD /* TVEpisodeViewController.swift */,
+				83ADC6EA1E53088500EAD65E /* MoviesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				83D932741E48837400C228F3 /* ViewController.swift in Sources */,
 				83C3F8831E4FE6EF00E7B2AD /* LayoutHelpers.swift in Sources */,
 				83C3F8801E4FE60200E7B2AD /* TVShowSeasonsViewController.swift in Sources */,
+				83ADC6EB1E53088500EAD65E /* MoviesViewController.swift in Sources */,
 				83D16B131E4B3CFF00C72196 /* MetadataService.swift in Sources */,
 				83D932721E48837400C228F3 /* AppDelegate.swift in Sources */,
 				83D16B171E4B3F1500C72196 /* ServiceHelpers.swift in Sources */,

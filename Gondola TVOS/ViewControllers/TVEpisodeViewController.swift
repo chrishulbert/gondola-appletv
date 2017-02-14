@@ -55,7 +55,7 @@ class TVEpisodeViewController: UIViewController {
         let vc = AVPlayerViewController()
         vc.player = AVPlayer(url: url)
         present(vc, animated: true, completion: nil)
-        vc?.player?.play() // Play before the completion block so it starts loading sooner.
+        vc.player?.play() // Play before the completion block so it starts loading sooner.
     }
     
 }
