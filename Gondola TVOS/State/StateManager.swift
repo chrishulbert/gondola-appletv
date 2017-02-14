@@ -21,7 +21,10 @@ class StateManager {
             DispatchQueue.main.async {
                 self.metadata = metadata
                 let tv = TVViewController(metadata: metadata)
-                self.rootNav.setViewControllers([tv], animated: true)
+                let movies = MoviesViewController(metadata: metadata)
+                let tab = UITabBarController()
+                tab.viewControllers = [movies, tv]
+                self.rootNav.setViewControllers([tab], animated: true)
             }
         }
     }

@@ -17,6 +17,8 @@ class TVViewController: UIViewController {
         self.metadata = metadata
         
         super.init(nibName: nil, bundle: nil)
+        
+        title = "TV"
     }
     
     required init(coder aDecoder: NSCoder) {

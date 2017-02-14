@@ -17,6 +17,8 @@ class MoviesViewController: UIViewController {
         self.metadata = metadata
         
         super.init(nibName: nil, bundle: nil)
+        
+        title = "Movies"
     }
     
     required init(coder aDecoder: NSCoder) {
