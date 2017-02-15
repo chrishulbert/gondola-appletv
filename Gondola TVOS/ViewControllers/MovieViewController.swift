@@ -130,7 +130,7 @@ class MovieView: UIView {
                              height: ceil(title.font.lineHeight))
         
         // Image under it.
-        let imageWidth = round(w * 0.35)
+        let imageWidth = round(w * 0.25)
         let aspect: CGFloat
         if let image = image.image, image.size.width > 0 {
             aspect = image.size.height / image.size.width
