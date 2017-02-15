@@ -22,6 +22,7 @@ struct MovieMetadata {
     let backdrop:     String
     let releaseDate:  String // eg "1989-07-05"
     let vote:         Float
+    let media:        String
 }
 
 struct TVShowMetadata {
@@ -75,7 +76,8 @@ extension MovieMetadata {
                              image:       from["Image"] as? String ?? "",
                              backdrop:    from["Backdrop"] as? String ?? "",
                              releaseDate: from["ReleaseDate"] as? String ?? "",
-                             vote:        from["Vote"] as? Float ?? 0)
+                             vote:        from["Vote"] as? Float ?? 0,
+                             media:       from["Media"] as? String ?? "")
     }
 }
 

@@ -81,10 +81,10 @@ extension MoviesViewController: UICollectionViewDataSource {
 
 extension MoviesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? PictureCell
         let movie = metadata.movies[indexPath.item]
-        // TODO
-//        let vc = TVShowSeasonsViewController(show: show)
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = MovieViewController(movie: movie, image: cell?.image.image)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
