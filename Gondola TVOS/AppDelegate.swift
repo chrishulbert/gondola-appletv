@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         StateManager.shared.rootNav = nav
-        StateManager.shared.appLaunch()
+        StateManager.shared.appLaunch(loading: loading)
         
         return true
     }
