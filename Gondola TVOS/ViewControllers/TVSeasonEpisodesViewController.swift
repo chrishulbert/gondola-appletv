@@ -124,7 +124,7 @@ class TVSeasonEpisodesView: UIView {
         background.contentMode = .scaleAspectFill
         addSubview(background)
         
-        dim.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        dim.backgroundColor = UIColor(white: 0, alpha: 0.7)
         addSubview(dim)
         
         title.textColor = UIColor.white
