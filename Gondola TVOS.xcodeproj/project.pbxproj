@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		832E39471E4B0D5300A71CE6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E39461E4B0D5300A71CE6 /* Models.swift */; };
+		837095711E83DC3900495745 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837095701E83DC3900495745 /* UIImage+Helpers.swift */; };
 		83ADC6EB1E53088500EAD65E /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADC6EA1E53088500EAD65E /* MoviesViewController.swift */; };
 		83ADC6ED1E5464A500EAD65E /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADC6EC1E5464A500EAD65E /* MovieViewController.swift */; };
 		83C3F8761E4C7A3D00E7B2AD /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		832E39461E4B0D5300A71CE6 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		837095701E83DC3900495745 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
 		83ADC6EA1E53088500EAD65E /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		83ADC6EC1E5464A500EAD65E /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				83C3F8821E4FE6EF00E7B2AD /* LayoutHelpers.swift */,
+				837095701E83DC3900495745 /* UIImage+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				83ADC6ED1E5464A500EAD65E /* MovieViewController.swift in Sources */,
 				83C3F87E1E4DD24500E7B2AD /* PictureCell.swift in Sources */,
 				832E39471E4B0D5300A71CE6 /* Models.swift in Sources */,
+				837095711E83DC3900495745 /* UIImage+Helpers.swift in Sources */,
 				83C3F8851E4FFD6C00E7B2AD /* TVSeasonEpisodesViewController.swift in Sources */,
 				83C3F87B1E4C7C8D00E7B2AD /* TVViewController.swift in Sources */,
 				83D16B151E4B3D2000C72196 /* Result.swift in Sources */,
