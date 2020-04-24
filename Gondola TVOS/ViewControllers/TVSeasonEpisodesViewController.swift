@@ -117,7 +117,7 @@ class TVSeasonEpisodesView: UIView {
         layout.sectionInset = UIEdgeInsets(top: LayoutHelpers.vertMargins, left: LayoutHelpers.sideMargins, bottom: LayoutHelpers.vertMargins, right: LayoutHelpers.sideMargins)
         
         collection = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
-        collection.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.dark))
+        collection.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         
         super.init(frame: CGRect.zero)
         
@@ -128,11 +128,11 @@ class TVSeasonEpisodesView: UIView {
         addSubview(dim)
         
         title.textColor = UIColor.white
-        title.font = UIFont.systemFont(ofSize: 60, weight: UIFontWeightThin)
+        title.font = UIFont.systemFont(ofSize: 60, weight: .thin)
         addSubview(title)
         
         overview.textColor = UIColor.white
-        overview.font = UIFont.systemFont(ofSize: 30, weight: UIFontWeightLight)
+        overview.font = UIFont.systemFont(ofSize: 30, weight: .light)
         overview.numberOfLines = 0
         addSubview(overview)
         

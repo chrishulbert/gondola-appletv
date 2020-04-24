@@ -60,7 +60,7 @@ class LoadingViewController: UIViewController {
         
     }
     
-    func tapHelp() {
+    @objc func tapHelp() {
         let a = UIAlertController(title: "Help",
                                   message: "Gondola is a media player that connects to a local server.\nIf you'd like to find more information about how to set up your server, please feel free to review the instructions at:\n\nsplinter.com.au/gondola",
                                   preferredStyle: .alert)
@@ -75,7 +75,7 @@ class LoadingView: UIView {
     let blurImage = UIImageView(image: #imageLiteral(resourceName: "Background"))
     let logoImage = UIImageView(image: #imageLiteral(resourceName: "LaunchLogo"))
     let launchImage = UIImageView(image: UIImage(named: "LaunchImage"))
-    let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+    let indicator = UIActivityIndicatorView(style: .white)
     let help = UIButton(type: .system)
     
     init() {

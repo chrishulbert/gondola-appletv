@@ -87,7 +87,7 @@ class PictureCell: UICollectionViewCell {
         // When focused, grows from 360 to 407 Horiz (1.13). 47 wider.
         // 540 to 610 (1.13x)
         static let focusGrowthHorizontal: CGFloat = 47
-        static let labelFont = UIFont.systemFont(ofSize: 30, weight: UIFontWeightThin)
+        static let labelFont = UIFont.systemFont(ofSize: 30, weight: .thin)
     }
         
 }

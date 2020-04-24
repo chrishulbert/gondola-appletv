@@ -59,7 +59,7 @@ class MovieViewController: UIViewController {
         rootView.play.addTarget(self, action: #selector(tapPlay), for: .primaryActionTriggered)
     }
     
-    func tapPlay() {
+    @objc func tapPlay() {
         guard let url = ServiceHelpers.url(path: movie.media) else { return }
         let vc = AVPlayerViewController()
         vc.player = AVPlayer(url: url)
@@ -92,11 +92,11 @@ class MovieView: UIView {
         addSubview(dim)
         
         title.textColor = UIColor.white
-        title.font = UIFont.systemFont(ofSize: 60, weight: UIFontWeightThin)
+        title.font = UIFont.systemFont(ofSize: 60, weight: .thin)
         addSubview(title)
         
         overview.textColor = UIColor.white
-        overview.font = UIFont.systemFont(ofSize: 30, weight: UIFontWeightLight)
+        overview.font = UIFont.systemFont(ofSize: 30, weight: .light)
         overview.numberOfLines = 0
         addSubview(overview)
         
@@ -105,7 +105,7 @@ class MovieView: UIView {
         
         details.textColor = UIColor(white: 1, alpha: 0.7)
         details.numberOfLines = 0
-        details.font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightLight)
+        details.font = UIFont.systemFont(ofSize: 25, weight: .light)
         addSubview(details)
         
         play.setTitle("Play", for: .normal)
