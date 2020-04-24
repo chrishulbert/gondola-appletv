@@ -74,7 +74,7 @@ struct ServiceHelpers {
         guard let image = UIImage(data: data) else {
             return .failure(ServiceError.notImage)
         }
-        // TODO load the image to the GPU.
+        image.af_inflate() // Load the image to the GPU. Do this in the background rather than foreground so it doesn't lag.
         return .success(image)
     }
 
