@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		832E39471E4B0D5300A71CE6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832E39461E4B0D5300A71CE6 /* Models.swift */; };
 		837095711E83DC3900495745 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837095701E83DC3900495745 /* UIImage+Helpers.swift */; };
+		83ADB47A26509643004E51F9 /* GetBookmarkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADB47826509643004E51F9 /* GetBookmarkService.swift */; };
+		83ADB47B26509643004E51F9 /* SetBookmarkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADB47926509643004E51F9 /* SetBookmarkService.swift */; };
+		83ADB47D265096DF004E51F9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADB47C265096DF004E51F9 /* Player.swift */; };
 		83ADC6EB1E53088500EAD65E /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADC6EA1E53088500EAD65E /* MoviesViewController.swift */; };
 		83ADC6ED1E5464A500EAD65E /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ADC6EC1E5464A500EAD65E /* MovieViewController.swift */; };
 		83C3F8761E4C7A3D00E7B2AD /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */; };
@@ -20,7 +23,6 @@
 		83C3F8851E4FFD6C00E7B2AD /* TVSeasonEpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8841E4FFD6C00E7B2AD /* TVSeasonEpisodesViewController.swift */; };
 		83C3F8871E51AF4400E7B2AD /* TVEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C3F8861E51AF4400E7B2AD /* TVEpisodeViewController.swift */; };
 		83D16B131E4B3CFF00C72196 /* MetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B121E4B3CFF00C72196 /* MetadataService.swift */; };
-		83D16B151E4B3D2000C72196 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B141E4B3D2000C72196 /* Result.swift */; };
 		83D16B171E4B3F1500C72196 /* ServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */; };
 		83D932721E48837400C228F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D932711E48837400C228F3 /* AppDelegate.swift */; };
 		83D932741E48837400C228F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D932731E48837400C228F3 /* ViewController.swift */; };
@@ -41,6 +43,9 @@
 /* Begin PBXFileReference section */
 		832E39461E4B0D5300A71CE6 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		837095701E83DC3900495745 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
+		83ADB47826509643004E51F9 /* GetBookmarkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBookmarkService.swift; sourceTree = "<group>"; };
+		83ADB47926509643004E51F9 /* SetBookmarkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBookmarkService.swift; sourceTree = "<group>"; };
+		83ADB47C265096DF004E51F9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		83ADC6EA1E53088500EAD65E /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		83ADC6EC1E5464A500EAD65E /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		83C3F8751E4C7A3D00E7B2AD /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +57,6 @@
 		83C3F8841E4FFD6C00E7B2AD /* TVSeasonEpisodesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVSeasonEpisodesViewController.swift; sourceTree = "<group>"; };
 		83C3F8861E51AF4400E7B2AD /* TVEpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVEpisodeViewController.swift; sourceTree = "<group>"; };
 		83D16B121E4B3CFF00C72196 /* MetadataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataService.swift; sourceTree = "<group>"; };
-		83D16B141E4B3D2000C72196 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHelpers.swift; sourceTree = "<group>"; };
 		83D9326E1E48837400C228F3 /* Gondola TVOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gondola TVOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D932711E48837400C228F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,9 +89,10 @@
 		832E39451E4B0C5C00A71CE6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				83ADB47826509643004E51F9 /* GetBookmarkService.swift */,
+				83ADB47926509643004E51F9 /* SetBookmarkService.swift */,
 				832E39461E4B0D5300A71CE6 /* Models.swift */,
 				83D16B121E4B3CFF00C72196 /* MetadataService.swift */,
-				83D16B141E4B3D2000C72196 /* Result.swift */,
 				83D16B161E4B3F1500C72196 /* ServiceHelpers.swift */,
 			);
 			path = Services;
@@ -126,6 +131,7 @@
 		83C3F8811E4FE6DD00E7B2AD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				83ADB47C265096DF004E51F9 /* Player.swift */,
 				83C3F8821E4FE6EF00E7B2AD /* LayoutHelpers.swift */,
 				837095701E83DC3900495745 /* UIImage+Helpers.swift */,
 			);
@@ -220,7 +226,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Chris Hulbert";
 				TargetAttributes = {
 					83D9326D1E48837400C228F3 = {
@@ -280,6 +286,7 @@
 			files = (
 				83C3F8871E51AF4400E7B2AD /* TVEpisodeViewController.swift in Sources */,
 				83C3F8761E4C7A3D00E7B2AD /* LoadingViewController.swift in Sources */,
+				83ADB47A26509643004E51F9 /* GetBookmarkService.swift in Sources */,
 				83C3F8791E4C7BD900E7B2AD /* StateManager.swift in Sources */,
 				83ADC6ED1E5464A500EAD65E /* MovieViewController.swift in Sources */,
 				83C3F87E1E4DD24500E7B2AD /* PictureCell.swift in Sources */,
@@ -287,12 +294,13 @@
 				837095711E83DC3900495745 /* UIImage+Helpers.swift in Sources */,
 				83C3F8851E4FFD6C00E7B2AD /* TVSeasonEpisodesViewController.swift in Sources */,
 				83C3F87B1E4C7C8D00E7B2AD /* TVViewController.swift in Sources */,
-				83D16B151E4B3D2000C72196 /* Result.swift in Sources */,
+				83ADB47B26509643004E51F9 /* SetBookmarkService.swift in Sources */,
 				83D932741E48837400C228F3 /* ViewController.swift in Sources */,
 				83C3F8831E4FE6EF00E7B2AD /* LayoutHelpers.swift in Sources */,
 				83C3F8801E4FE60200E7B2AD /* TVShowSeasonsViewController.swift in Sources */,
 				83ADC6EB1E53088500EAD65E /* MoviesViewController.swift in Sources */,
 				83D16B131E4B3CFF00C72196 /* MetadataService.swift in Sources */,
+				83ADB47D265096DF004E51F9 /* Player.swift in Sources */,
 				83D932721E48837400C228F3 /* AppDelegate.swift in Sources */,
 				83D16B171E4B3F1500C72196 /* ServiceHelpers.swift in Sources */,
 			);
@@ -341,6 +349,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -371,7 +380,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -399,6 +408,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -421,7 +431,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -434,6 +444,7 @@
 				DEVELOPMENT_TEAM = 99M38G59F6;
 				INFOPLIST_FILE = "Gondola TVOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splinter.gondola;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 10;
@@ -448,6 +459,7 @@
 				DEVELOPMENT_TEAM = 99M38G59F6;
 				INFOPLIST_FILE = "Gondola TVOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.splinter.gondola;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 10;

@@ -51,12 +51,7 @@ class TVEpisodeViewController: UIViewController {
     }
     
     @objc func tapPlay() {
-        guard let url = ServiceHelpers.url(path: episode.media) else { return }
-        let vc = AVPlayerViewController()
-        vc.player = AVPlayer(url: url)
-        present(vc, animated: true, completion: { [weak vc] in
-            vc?.player?.play()
-        })
+        pushPlayer(media: episode.media)
     }
     
 }

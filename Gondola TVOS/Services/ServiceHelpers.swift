@@ -11,8 +11,8 @@ import UIKit
 
 struct ServiceHelpers {
     
-    typealias JsonResult = Result<[AnyHashable: Any]>
-    typealias ImageResult = Result<UIImage>
+    typealias JsonResult = Result<[AnyHashable: Any], Error>
+    typealias ImageResult = Result<UIImage, Error>
     
     /// Returns on any thread.
     static func jsonRequest(path: String, completion: @escaping (JsonResult) -> ()) {
@@ -20,12 +20,23 @@ struct ServiceHelpers {
             completion(.failure(ServiceError.badUrl))
             return
         }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        jsonRequest(url: url, completion: completion)
+    }
+
+    /// Returns on any thread.
+    static func jsonRequest(url: URL, completion: @escaping (JsonResult) -> ()) {
+        let request = URLRequest(url: url)
+        jsonRequest(request: request, completion: completion)
+    }
+
+    /// Returns on any thread.
+    static func jsonRequest(request: URLRequest, completion: @escaping (JsonResult) -> ()) {
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
             completion(jsonResult(data: data, response: response, error: error))
         }
         task.resume()
     }
-    
+
     static func imageRequest(path: String, completion: @escaping (ImageResult) -> ()) {
         guard let url = url(path: path) else {
             completion(.failure(ServiceError.badUrl))
@@ -46,7 +57,7 @@ struct ServiceHelpers {
         if let error = error {
             return .failure(error)
         }
-        if let response = response as? HTTPURLResponse, response.statusCode > 400 {
+        if let response = response as? HTTPURLResponse, response.statusCode >= 400 {
             return .failure(ServiceError.httpError(response.statusCode))
         }
         guard let data = data else {
@@ -74,7 +85,7 @@ struct ServiceHelpers {
         guard let image = UIImage(data: data) else {
             return .failure(ServiceError.notImage)
         }
-        image.af_inflate() // Load the image to the GPU. Do this in the background rather than foreground so it doesn't lag.
+        // TODO load the image to the GPU.
         return .success(image)
     }
 
